@@ -6,7 +6,7 @@ import json
 app = Flask(__name__)
 
 def get_meme():
-    url = "https://meme-api.com/gimme"
+    url = "https://meme-api.com/gimme/wholesomememes"
     response = requests.get(url)
     print(response.text)  # Print the response content
     meme_data = response.json() # this graps the JS info from the website
