@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
-    <link rel="stylesheet" type="text/css" href="/static/sakura-vader.css">
-  </head>
-  <body>
-    <center>
+<head>
+  <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+  <link rel="stylesheet" type="text/css" href="/static/sakura-vader.css">
+</head>
+<body>
+  <center>
     <h1>A website for memes!</h1>
-    <div hx-get="/">
-    </div>
-    </center>
-  </body>
+    <table>
+      <tr>
+        <td><p>The Daily Memer</p></td>
+        <td>
+          <div hx-get="/meme" hx-trigger="load" hx-swap="innerHTML">
+            <!-- Placeholder content to make the layout appear -->
+            Meme content goes here!
+          </div>
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
 </html>

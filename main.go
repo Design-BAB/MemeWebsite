@@ -39,7 +39,7 @@ type OnlineMeme struct {
 func fetchMeme() *Meme {
   fmt.Println("I am now going to go get the meme!")
   apiURL := fmt.Sprintf("https://meme-api.com/gimme/wholesomememes")
-  // Make an HTTP GET request to the Jikan API
+  // Make an HTTP GET request to the  API
 	resp, err := http.Get(apiURL)
 	if err != nil {
 		 // If the request fails, return the error
@@ -73,8 +73,6 @@ func main() {
 		  }
       tmp1.Execute(w, nil)
       w.Header().Set("Content-Type", "text/html")
-      theMeme := fetchMeme()
-      w.Write([]byte(`<img src="` + theMeme.Image + `" width="700">`)) 
     }
 
     fs := http.FS(staticFiles)
@@ -82,6 +80,14 @@ func main() {
     //This will handle the function.
     //since this is "/" basicly when you go to the homepage it tells the person Hey! go run h1 when visitng the homepage
     http.HandleFunc("/", h1)
+
+
+    http.HandleFunc("/meme", func(w http.ResponseWriter, r *http.Request) {
+      w.Header().Set("Content-Type", "text/html")
+      theMeme := fetchMeme()
+      w.Write([]byte(`<img src="` + theMeme.Image + `" width="700">`))
+    })
+
     openBrowser("http://localhost:8000")
     //log.fatal will recond something if it failed to make a webserver
     //http listen and serve creates that server.
