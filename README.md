@@ -1,37 +1,36 @@
-📰 The Daily Memer
+# 📰 The Daily Memer
 
-A small web app written in Go that fetches and displays a wholesome meme using the Meme API.
-🛠 Features
+A delightfully simple web app written in Go that fetches and displays wholesome memes using the Meme API.
 
-#Fetches a new meme from r/wholesomememes
-#Written in Go with net/http and html/template
-#Uses HTMX to load memes dynamically
+## 🛠 Features
 
-📁 Structure
+- Pulls fresh memes from [r/wholesomememes](https://www.reddit.com/r/wholesomememes)
+- Written in Go using `net/http` and `html/template`
+- Uses [HTMX](https://htmx.org) for dynamic content loading
 
+## 📁 Project Structure
+
+```
 .
-├── main.go              # Main Go server
+├── main.go              // Go web server
 ├── static/
-│   ├── index.html       # HTML template
-│   └── sakura-vader.css # Minimal CSS theme
+│   ├── index.html       // HTML template
+│   └── sakura-vader.css // Minimal Vader-themed CSS
+```
 
-⚙️ How It Works
+## ⚙️ How It Works
 
-#The homepage serves index.html
+1. Homepage serves `index.html`
+2. HTMX sends an async request to `/meme`
+3. Backend fetches a wholesome meme and returns it as an `<img>` tag
 
-#HTMX triggers a request to /meme
+## 🧱 Technologies Used
 
-#The Go backend fetches a meme and returns an <img> tag
+- **Go** – lightweight server with `net/http` and `html/template`
+- **HTMX** – handles dynamic meme fetching
+- **[Meme API](https://meme-api.com)** – source of wholesome goodness
+- **Sakura.css (Vader edition)** – for minimalist vibes
 
-🧱 Technologies Used
-#Go (net/http, html/template)
+## 📜 License
 
-#HTMX (for async fetching)
-
-#Meme API (https://meme-api.com)
-
-#Sakura.css theme: Vader edition
-
-📜 License
-
-MIT
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT)
